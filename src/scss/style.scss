@@ -1,0 +1,12 @@
+@use "./Utils/functions";
+@use "./Utils/variables";
+
+@use "./Base/reset";
+@use "./Base/helpers";
+
+@use "./Layout/nav";
+@use "./Layout/hero";
+@use "./Layout/editor-section";
+@use "./Layout/phone-section";
+@use "./Layout/laptop-section";
+@use "./Layout/footer";

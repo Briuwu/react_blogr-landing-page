@@ -1,0 +1,154 @@
+@use "../Utils/variables" as var;
+
+.nav {
+  position: relative;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 3em;
+
+  &__items {
+    display: none;
+    font-weight: 500;
+  }
+
+  &__auth {
+    --spacing: 2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5em;
+
+    .signup {
+      padding: 0.5em 2em;
+      border-radius: 100vw;
+    }
+  }
+}
+
+.dropdown {
+  &__menu {
+    display: none;
+  }
+  &__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+  }
+
+  &__item:hover {
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  &__menu.active {
+    display: grid;
+    gap: 0.5em;
+    border-radius: 0.5em;
+    padding-block: 1em;
+    margin-top: 1em;
+    background-color: hsla(240, 3%, 79%, 0.25);
+    color: var.$clr-body-copy;
+    font-weight: 400;
+  }
+  &__toggle {
+    margin-inline: auto;
+  }
+
+  &__toggle.active img {
+    transform: rotate(180deg);
+  }
+}
+
+@media (max-width: var.$screen) {
+  .nav {
+    &__items.active {
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      border-radius: 0.5em;
+      text-align: center;
+
+      position: absolute;
+      display: block;
+      background-color: var.$clr-white;
+      width: 100%;
+      top: 6em;
+      color: var.$clr-headings;
+      padding: 2em 1em;
+
+      .arrow-light {
+        display: none;
+      }
+
+      .nav__menu {
+        display: grid;
+        gap: 1em;
+      }
+    }
+
+    &__auth {
+      border-top: 1px solid var.$clr-footer-text;
+      margin-top: var(--spacing);
+      padding-top: var(--spacing);
+
+      .signup {
+        background: linear-gradient(to right, var.$bg-gradient-1);
+        color: var.$clr-white;
+      }
+    }
+  }
+}
+
+@media (min-width: var.$screen) {
+  .nav {
+    justify-content: start;
+    gap: 3em;
+
+    &__items {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .arrow-dark {
+        display: none;
+      }
+    }
+
+    &__hamburger {
+      display: none;
+    }
+
+    &__menu {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+    }
+
+    &__auth {
+      flex-direction: row;
+
+      .signup {
+        background-color: var.$clr-white;
+        color: var.$clr-headings;
+
+        &:hover {
+          background-color: var.$clr-cta-bg;
+          color: var.$clr-white;
+        }
+      }
+    }
+  }
+
+  .dropdown {
+    position: relative;
+
+    &__menu.active {
+      position: absolute;
+      background-color: var.$clr-white;
+      padding: 1em;
+      width: 150px;
+      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    }
+  }
+}

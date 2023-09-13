@@ -1,0 +1,68 @@
+@use "../Utils/variables" as var;
+@use "../Utils/functions" as func;
+
+.phone {
+  --radius: 5em;
+  position: relative;
+  background-color: var.$bg-3;
+  border-top-right-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+  padding-block: 15em 7em;
+  margin-block: 15em 5em;
+  text-align: center;
+  font-family: var.$ff-overpass;
+  background-image: url("./images/bg-pattern-circles.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: -15em;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-10em);
+    max-width: 370px;
+  }
+
+  &__desc {
+    display: grid;
+    place-content: center;
+    gap: 1em;
+
+    h2 {
+      font-size: func.rem(30);
+    }
+  }
+}
+
+@media (min-width: 60rem) {
+  .phone {
+    padding: 0;
+    margin-block: 10em;
+    --radius: 10em;
+
+    background-position-x: -10em;
+    background-position-y: -30em;
+    background-size: 60em;
+    .wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    img {
+      position: relative;
+      inset: 0;
+      transform: translateY(0px);
+      max-width: unset;
+    }
+
+    &__desc {
+      text-align: left;
+
+      h2 {
+        font-size: func.rem(40);
+      }
+    }
+  }
+}

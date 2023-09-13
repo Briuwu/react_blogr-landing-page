@@ -1,0 +1,41 @@
+@use "../Utils/functions" as func;
+@use "../Utils/variables" as var;
+
+.editor {
+  color: var.$clr-headings;
+  text-align: center;
+  margin-block: 5em;
+  display: grid;
+  gap: 1em;
+  font-family: var.$ff-overpass;
+
+  h2 {
+    font-size: func.rem(30);
+  }
+
+  &__info {
+    .desktop {
+      display: none;
+    }
+  }
+
+  &__desc {
+    display: grid;
+    gap: 1em;
+
+    h3 {
+      font-size: func.rem(25);
+    }
+  }
+}
+
+@media (min-width: var.$screen) {
+  .editor__info {
+    .mobile {
+      display: none;
+    }
+    .desktop {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+@use "../Utils/variables" as var;
+@use "../Utils/functions" as func;
+
+.footer {
+  background-color: var.$clr-footer-bg;
+  border-top-right-radius: 5em;
+  padding-block: 5em;
+
+  .wrapper {
+    display: grid;
+    justify-content: center;
+    text-align: center;
+    gap: 4em;
+  }
+
+  &__items {
+    display: grid;
+    gap: 1em;
+
+    h2 {
+      font-size: func.rem(16);
+    }
+
+    ul {
+      display: grid;
+      gap: 0.5em;
+    }
+
+    li a {
+      color: var.$clr-footer-text;
+    }
+  }
+}
+
+@media (min-width: var.$screen) {
+  .footer {
+    border-top-right-radius: 7em;
+
+    .wrapper {
+      grid-template-columns: repeat(4, 1fr);
+      align-items: start;
+      text-align: left;
+    }
+  }
+}

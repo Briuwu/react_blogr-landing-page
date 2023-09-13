@@ -1,0 +1,54 @@
+@use "../Utils/functions" as func;
+@use "../Utils/variables" as var;
+
+.hero {
+  text-align: center;
+  display: grid;
+  justify-items: center;
+  gap: 1em;
+
+  padding: 1em;
+  font-family: var.$ff-overpass;
+
+  h1 {
+    font-weight: 700;
+    font-size: func.rem(33);
+  }
+
+  p {
+    font-size: func.rem(18);
+  }
+
+  &-btn {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    max-width: 300px;
+  }
+
+  .btn {
+    padding: 0.75em 1em;
+    border-radius: 100vw;
+    font-weight: 700;
+
+    &:nth-child(1) {
+      background-color: var.$clr-white;
+      color: var.$clr-cta-text;
+
+      &:hover {
+        background-color: var.$clr-cta-bg;
+        color: var.$clr-white;
+      }
+    }
+
+    &:nth-child(2) {
+      border: 1px solid var.$clr-white;
+
+      &:hover {
+        background-color: var.$clr-white;
+        color: var.$clr-cta-text;
+      }
+    }
+  }
+}
